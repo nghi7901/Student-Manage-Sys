@@ -103,6 +103,16 @@ class StudentController extends Controller
             ->orderBy('count')
             ->get();
 
+        $data['barChart'] = Student::select(DB::raw("COUNT(*) as count"), DB::raw("(
+            CASE WHEN status='Active' THEN 'Active' 
+                WHEN status='Leave' THEN 'Leave'
+                WHEN status='Suspended' THEN 'Suspended'
+                WHEN status='Drop out' THEN 'Drop out'
+                ELSE 'Failed' END) as status"))
+            ->groupBy('status')
+            ->orderBy('count')
+            ->get();
+
         return view('students.statistics', $data);
     }
     
