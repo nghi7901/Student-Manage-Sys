@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Enums\StudentStatus;
+use App\Exports\StudentsExport;
+use App\Imports\StudentsImport;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends Controller
 {
@@ -79,16 +82,16 @@ class StudentController extends Controller
     */
     public function export() 
     {
-        // return Excel::download(new StudentsExport, 'students.xlsx');
+        return Excel::download(new StudentsExport, 'students.xlsx');
     }
 
     public function import() 
     {
-        // Excel::import(new StudentsImport, request()->file('file'));
-        // return back();
+        Excel::import(new StudentsImport, request()->file('file'));
+        return back();
     }
 
-    public function showPieChart()
+    public function showChart()
     {
         $data['pieChart'] = Student::select(DB::raw("COUNT(*) as count"), DB::raw("(
             CASE WHEN gpa>=2 and gpa < 2.8 THEN 'Average' 
@@ -102,4 +105,5 @@ class StudentController extends Controller
 
         return view('students.statistics', $data);
     }
+    
 }

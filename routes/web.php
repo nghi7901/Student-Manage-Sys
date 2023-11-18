@@ -27,5 +27,5 @@ Route::prefix('students')->controller(StudentController::class)->group(function 
     Route::get('/export', 'export')->name('students.export');
     Route::post('/import', 'import')->name('students.import');
 
-    Route::get('/statistics', 'showPieChart')->name('students.statistics');
+    Route::get('/statistics', 'showChart')->name('students.statistics');
 });
