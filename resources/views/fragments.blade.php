@@ -24,11 +24,11 @@
         <nav class="nav">
             <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">VLU</span> </a>
                 <div class="nav_list"> 
-                    {{-- <a href="{{route('home')}}" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>  --}}
-                    <a href="{{route('students')}}" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Students</span> </a> 
-                    <a href="{{route('students.statistics')}}" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a>
+                    <a href="{{route('home')}}" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span></a> 
+                    <a href="{{route('students')}}" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Students</span></a> 
+                    <a href="{{route('students.statistics')}}" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span></a>
                 </div>
-            {{-- </div> <a href="{{route('logout')}}" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a> --}}
+            </div> <a href="{{route('logout')}}" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span></a>
         </nav>
     </div>
     <!--Container Main start-->

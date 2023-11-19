@@ -51,7 +51,17 @@
                         <td>{{ $student->name }}</td>
                         <td>{{ $student->birthday }}</td>
                         <td>{{ $student->gpa }}</td>
-                        <td>{{ $student->status }}</td>
+                        <td>
+                            @if ($student->status->value == 'Active')
+                                <span class="text-success">Active</span>
+                            @elseif ($student->status->value == 'Drop out')
+                                <span class="text-danger">Suspended</span>
+                            @elseif ($student->status->value == 'Leave')
+                                <span class="text-warning">Leave</span>
+                            @else 
+                                <span class="text-dark">Drop out</span>
+                            @endif
+                        </td>
                         <td class="d-md-flex">
                             <a href="" data-bs-toggle="modal" data-bs-target="#editStudent{{$student->id}}"><i class="bi bi-gear text-muted"></i></a>
                             &nbsp;

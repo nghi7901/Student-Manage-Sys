@@ -1,0 +1,102 @@
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 
+        thuộc tính width và height sẽ tự động bao gồm luôn content, padding và border 
+        chiều rộng của content sẽ tự động co giãn tương ứng nếu thay đổi padding và border
+        đảm bảo kích thước element không thay đổi, đồng nghĩa layout tổng không thay đổi 
+    */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+body 
+{
+	display: flex;
+        /* flexbox tự căn chỉnh các item hiển thị đều nhau theo main axis dựa theo chiều rộng của container 
+        dù có chỉnh chiều rộng vượt quá giới hạn của flexbox thì nó vẫn không bị nhảy lung tung*/
+	justify-content: center;
+        /* điều chỉnh vị trí bắt đầu của các item bên trong */
+	align-items: center;
+        /* các mục con đặt ở trung tâm của thành phần chứa */
+	min-height: 100vh;
+	flex-direction: column;
+        /* các mục linh hoạt được sắp xếp theo một cột từ trên xuống */
+    background: lightgray;
+}
+
+.login-form {
+    position: relative;
+    /* 
+        có thể di chuyển được element
+        không ảnh hưởng đến vị trí của các element khác
+    */
+    width: 380px;
+	height: 450px;
+    border-radius: 8px;
+        /* bo góc */
+	overflow: hidden;
+        /* Nếu kích thước nội dung lớn hơn box thì phần nội dung dư thừa sẽ bị ẩn */
+    background: white;
+}
+
+.login-form img {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 40px 140px 10px;
+
+}
+#schoolname, .desc {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+
+.login-input, .login-submit {
+    width: 100%;
+    position: relative;
+    margin: 20px 60px;
+}
+.login-input input, .login-submit input {
+    width: 60%;
+    margin: 0 10px;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background: linear-gradient(to bottom right, #9b59b6,#3498db);
+    border: none;
+	outline: none;
+    cursor: pointer;
+}
+
+input[type="text"],
+input[type="password"] {
+    background-color: rgba(126, 130, 138, 0.1);
+    border: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus{
+    background: white;
+    /*
+    outline: 0;
+    border: 0;
+    */
+}
+
+input[type="submit"]:hover
+{
+	opacity: 0.8;
+    
+}
+
+.login-input .login-message {
+    width: 100%;
+    justify-content: center;
+}

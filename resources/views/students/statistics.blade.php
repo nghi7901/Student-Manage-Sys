@@ -60,7 +60,7 @@
                 // chart: {
                 //     title: 'Students Status Overview',
                 // },
-                colors: ['#D3D3D3'],
+                colors: ['#FFA500'],
                 width: 500, 
                 height: 400,
                 vAxis: {
