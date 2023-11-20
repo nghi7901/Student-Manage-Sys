@@ -7,7 +7,7 @@
     {{-- <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"> --}}
     <link rel="stylesheet" href="/template/css/reset.css">
     <link rel="stylesheet" href="/template/css/style.css">
-    <title>Login</title>
+    <title>{{ $title }}</title>
 </head>
 <body>
     <div class="login-form" id="login-form">

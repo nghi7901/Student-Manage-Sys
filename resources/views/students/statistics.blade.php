@@ -3,13 +3,13 @@
     <div class="container">
         <div class="mx-5 pt-3" style="border: 1px solid">
             <h3 style="text-align: center;">
-                Student Perfomance Statistics
+                Thống kê kết quả học tập của sinh viên
             </h3>
             <div id="pie-chart" style="width: 600px; height: 400px; margin: auto;"></div>
         </div>
         <div class="m-5 py-3" style="border: 1px solid">
             <h3 style="text-align: center; margin-bottom: 30px">
-                Student Status Overview
+                Thống kê trạng thái học tập của sinh viên
             </h3>
             <div id="bar-chart" style="width: 600px; height: 400px; margin: auto"></div>
         </div>

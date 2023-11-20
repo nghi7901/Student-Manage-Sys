@@ -24,6 +24,7 @@
                 </div>
                 
             </div>
+            @if (Auth::user()->is_admin)
             <div class="mx-1 my-3 d-flex justify-content-between">
                 <button type="button" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="#addStudent"><i class="fa fa-plus p-1"></i></button>
                 <div class="d-flex justify-content-end">
@@ -31,16 +32,20 @@
                     <button type="button" class="btn btn-warning"><a class="text-dark" href="{{route('students.export')}}">Export</a></button>
                 </div>
             </div>
+            @endif
 
             <table class="table table-striped table-hover">
                 <thead class="table-dark">
                 <tr>
-                    <th>Student ID</th>
-                    <th>Name</th>
-                    <th>Birthday</th>
+                    <th>Mã số sinh viên</th>
+                    <th>Họ tên</th>
+                    <th>Ngày sinh</th>
                     <th>GPA</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    <th>Trạng thái</th>
+                    @if (Auth::user()->is_admin)
+                    <th>Thao tác</th>
+                    @endif
+                    
                 </tr>
                 </thead>
 
@@ -62,11 +67,13 @@
                                 <span class="text-dark">Drop out</span>
                             @endif
                         </td>
+                        @if (Auth::user()->is_admin)
                         <td class="d-md-flex">
+                            
                             <a href="" data-bs-toggle="modal" data-bs-target="#editStudent{{$student->id}}"><i class="bi bi-gear text-muted"></i></a>
                             &nbsp;
                             <a href="" data-bs-toggle="modal" data-bs-target="#deleteStudent{{$student->id}}"><i class="bi bi-trash text-danger"></i></a>
-
+                            
                             {{-- <form method="post" action="{{route('students.delete', ['student' => $student])}}">
                                 @csrf 
                                 @method('delete')
@@ -79,6 +86,7 @@
                         </td>
                         @include('students.edit')
                         @include('students.delete')
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>

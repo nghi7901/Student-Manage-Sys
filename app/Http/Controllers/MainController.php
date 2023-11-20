@@ -9,7 +9,9 @@ class MainController extends Controller
 {
     //
     public function index(){
-        return view('home');
+        return view('home', [
+            'title' => 'Trang chủ'
+        ]);
     }
 
     public function logout(Request $request){

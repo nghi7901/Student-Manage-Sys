@@ -34,4 +34,5 @@ class Student extends Model
             'studentId' => $this->studentId
         ];
     }
+    
 }

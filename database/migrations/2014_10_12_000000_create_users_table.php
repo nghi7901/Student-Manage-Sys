@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -26,6 +27,15 @@ return new class extends Migration
             array(
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
+                'password' => '$2y$12$JxhNkxp0Vu0S2n6nFUPnNehW5JaEaxm2hqTLxVYoRXu6w48scWxbG',
+                'is_admin' => 1,
+            )
+        );
+
+        DB::table('users')->insert(
+            array(
+                'name' => 'User',
+                'email' => 'user@gmail.com',
                 'password' => '$2y$12$JxhNkxp0Vu0S2n6nFUPnNehW5JaEaxm2hqTLxVYoRXu6w48scWxbG',
             )
         );

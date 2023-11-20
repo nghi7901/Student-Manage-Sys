@@ -27,6 +27,7 @@ class StudentController extends Controller
         return view('students.index', [
             'studentList' => $studentList,
             'arrStudentStatus' => $arrStudentStatus,
+            'title' => 'Sinh viên',
         ]);
         
     }
@@ -113,7 +114,9 @@ class StudentController extends Controller
             ->orderBy('count')
             ->get();
 
-        return view('students.statistics', $data);
+        return view('students.statistics', $data, [
+            'title' => 'Thống kê',
+        ]);
     }
     
 }

@@ -31,13 +31,15 @@ Route::middleware(['auth'])->group(function() {
 
     Route::prefix('students')->controller(StudentController::class)->group(function () {
         Route::get("", 'index')->name('students');
-        Route::post("/store", 'store')->name('students.store');
-        Route::put("/update/{student}", 'update')->name('students.update');
-        Route::delete("/delete/{student}", 'delete')->name('students.delete');
-        Route::get('/export', 'export')->name('students.export');
-        Route::post('/import', 'import')->name('students.import');
 
-        Route::get('/statistics', 'showChart')->name('students.statistics');
+        Route::middleware(['is_admin'])->group(function() {
+            Route::post("/store", 'store')->name('students.store');
+            Route::put("/update/{student}", 'update')->name('students.update');
+            Route::delete("/delete/{student}", 'delete')->name('students.delete');
+            Route::get('/export', 'export')->name('students.export');
+            Route::post('/import', 'import')->name('students.import');
+    
+            Route::get('/statistics', 'showChart')->name('students.statistics');
+        }); 
     });
-
 });
