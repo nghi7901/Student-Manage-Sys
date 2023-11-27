@@ -97,4 +97,12 @@
     </div>
     @include('students.create')
     @include('students.import')
+
+    <script>
+        // success message popup notification
+        @if(session()->has('success'))
+        toastr.success("{{ session()->get('success') }}");
+        @endif
+
+    </script>
 @endsection

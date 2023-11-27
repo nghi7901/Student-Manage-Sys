@@ -49,7 +49,7 @@ class StudentController extends Controller
 
         $newStudent = Student::create($data);
 
-        return redirect(route('students'));
+        return redirect(route('students'))->with('success', 'Thêm thành công !');
 
     }
 
@@ -70,12 +70,12 @@ class StudentController extends Controller
 
         $student->update($data);
 
-        return redirect(route('students'))->with('success', 'Updated succesffully');
+        return redirect(route('students'))->with('success', 'Cập nhật thành công !');
     }
 
     public function delete(Student $student){
         $student->delete();
-        return redirect(route('students'))->with('success', 'Deleted succesffully');
+        return redirect(route('students'))->with('success', 'Xóa thành công !');
     }
 
     /**
@@ -89,7 +89,7 @@ class StudentController extends Controller
     public function import() 
     {
         Excel::import(new StudentsImport, request()->file('file'));
-        return back();
+        return back()->with('success', 'Import dữ liệu thành công !');
     }
 
     public function showChart()
