@@ -43,8 +43,14 @@
         <div class="container-fluid">
             @yield('content')
         </div>
+
+        <footer class="py-3 my-4">
+            <div class="border-bottom pb-3 mb-3"></div>
+            <p class="text-center text-muted">Copyright &copy; <span class="text-reset fw-bold">Nghi Nguyen</span></p>
+        </footer>
     </div>
     <!--Container Main end-->
+    
     
 </body>
 <script>

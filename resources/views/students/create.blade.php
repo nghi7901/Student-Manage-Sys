@@ -25,8 +25,8 @@
                     <div class="form-floating mb-3 mt-3">
                         <select class="form-control" name="gender">
                             <option value="">---</option>
-                            <option value="Male">Nam</option>
-                            <option value="Female">Nữ</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
                           </select>
                         <label>Giới tính</label>
                     </div>

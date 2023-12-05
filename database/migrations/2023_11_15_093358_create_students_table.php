@@ -18,14 +18,14 @@ return new class extends Migration
             $table->string('studentId')->unique();
             $table->string('name');
             $table->date('birthday');
-            $table->string('gender')->nullable()->default('Male');
+            $table->string('gender')->nullable()->default('Nam');
             // $table->string('phone')->nullable();
             // $table->string('address')->nullable();
             // $table->unsignedInteger('sum_of_credits')->nullable();
             $table->float('gpa')->nullable();
             $table->string('lop')->nullable();
 
-            $table->string('status')->default('Active');
+            $table->string('status')->default('Đang học');
 
             $table->timestamps();
         });

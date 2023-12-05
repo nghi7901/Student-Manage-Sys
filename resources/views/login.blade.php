@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="login-form" id="login-form">
-        <img id="logo" src="/template/img/logoVLU.jpg" title="logo">
+        <img id="logo" src="/template/img/logoVLU.jpg" title="logo" style="width: 90px; height: 100px">
         <h4 id="schoolname">Trường Đại Học Văn Lang</h4><br>
         <div class="desc">Cổng thông tin đào tạo</div>
         <form action="/check-login" method="post" class="login">

@@ -26,10 +26,10 @@
             </div>
             @if (Auth::user()->is_admin)
             <div class="mx-1 my-3 d-flex justify-content-between">
-                <button type="button" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="#addStudent"><i class="fa fa-plus p-1"></i></button>
+                <button type="button" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="#addStudent"><i class="fa fa-plus p-1"></i>&nbsp;Thêm</button>
                 <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="#importStudent">Import</button>
-                    <button type="button" class="btn btn-warning"><a class="text-dark" href="{{route('students.export')}}">Export</a></button>
+                    <button type="button" class="btn btn-warning mx-1" data-bs-toggle="modal" data-bs-target="#importStudent">Nhập dữ liệu từ Excel</button>
+                    <button type="button" class="btn btn-warning"><a class="text-dark" href="{{route('students.export')}}">Xuất file excel</a></button>
                 </div>
             </div>
             @endif
@@ -57,32 +57,22 @@
                         <td>{{ $student->birthday }}</td>
                         <td>{{ $student->gpa }}</td>
                         <td>
-                            @if ($student->status->value == 'Active')
-                                <span class="text-success">Active</span>
-                            @elseif ($student->status->value == 'Drop out')
-                                <span class="text-danger">Suspended</span>
-                            @elseif ($student->status->value == 'Leave')
-                                <span class="text-warning">Leave</span>
+                            @if ($student->status->value == 'Đang học')
+                                <span class="text-success">Đang học</span>
+                            @elseif ($student->status->value == 'Bảo lưu')
+                                <span class="text-warning">Bảo lưu</span>
+                            @elseif ($student->status->value == 'Đình chỉ')
+                                <span class="text-danger">Đình chỉ</span>
                             @else 
-                                <span class="text-dark">Drop out</span>
+                                <span class="text-dark">Nghỉ học</span>
                             @endif
                         </td>
                         @if (Auth::user()->is_admin)
                         <td class="d-md-flex">
                             
-                            <a href="" data-bs-toggle="modal" data-bs-target="#editStudent{{$student->id}}"><i class="bi bi-gear text-muted"></i></a>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#editStudent{{$student->id}}"><i class="bi bi-pencil text-muted"></i></a>
                             &nbsp;
                             <a href="" data-bs-toggle="modal" data-bs-target="#deleteStudent{{$student->id}}"><i class="bi bi-trash text-danger"></i></a>
-                            
-                            {{-- <form method="post" action="{{route('students.delete', ['student' => $student])}}">
-                                @csrf 
-                                @method('delete')
-                                <button type="submit" 
-                                        style="border: none; background-color: transparent" 
-                                        onclick="return confirm('Are you sure you want to delete?')">
-                                    <i class="bi bi-trash text-danger"></i>
-                                </button>
-                            </form> --}}
                         </td>
                         @include('students.edit')
                         @include('students.delete')

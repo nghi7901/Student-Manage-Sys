@@ -25,7 +25,7 @@
         function drawPieChart() {
 
             var data = google.visualization.arrayToDataTable([
-                ['Rank', 'Students Rank Count'],
+                ['Xếp loại', 'Số lượng sinh viên theo xếp loại'],
 
                 @php
                     foreach ($pieChart as $d) {
@@ -35,7 +35,7 @@
             ]);
 
             var options = {
-                title: 'Students Rank Performance',
+                title: 'Kết quả học tập của sinh viên',
                 is3D: false,
             };
 
@@ -47,7 +47,7 @@
         // Status bar chart
         function drawBarChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Status', ''],
+                ['Trạng thái', ''],
 
                 @php
                     foreach ($barChart as $b) {
@@ -64,11 +64,11 @@
                 width: 500, 
                 height: 400,
                 vAxis: {
-                    title: 'Total', // Đặt tiêu đề cho trục dọc
+                    title: 'Số lượng', // Đặt tiêu đề cho trục dọc
                     titleTextStyle: { color: '#FF0000' }, // Đặt màu sắc cho tiêu đề trục dọc
                 },
                 hAxis: {
-                    title: 'Status', // Đặt tiêu đề cho trục ngang
+                    title: 'Trạng thái', // Đặt tiêu đề cho trục ngang
                     titleTextStyle: { color: '#FF0000' }, // Đặt màu sắc cho tiêu đề trục ngang
                 },
                 legend: { position: 'none' }, // Ẩn hiển thị chú thích

@@ -24,7 +24,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        session()->flash('error', 'Sai username hoac password');
+        session()->flash('error', 'Sai tên đăng nhập hoặc mật khẩu');
         return redirect()->back();
     }
 }

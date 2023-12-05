@@ -18,10 +18,10 @@ class StudentController extends Controller
         if($request->filled('search')){
             $studentList = Student::where('name', 'LIKE', "%{$request->search}%")
             ->orWhere('studentId', 'LIKE', "%{$request->search}%")
-            ->paginate(5);
+            ->paginate(6);
         }else{
             // $studentList = Student::get();
-            $studentList = Student::orderBy("studentId","asc")->paginate(5);
+            $studentList = Student::orderBy('created_at', 'desc')->paginate(6);
         }
         // $studentList = Student::all();
         return view('students.index', [
@@ -89,26 +89,26 @@ class StudentController extends Controller
     public function import() 
     {
         Excel::import(new StudentsImport, request()->file('file'));
-        return back()->with('success', 'Import dữ liệu thành công !');
+        return back()->with('success', 'Nhập dữ liệu thành công !');
     }
 
     public function showChart()
     {
         $data['pieChart'] = Student::select(DB::raw("COUNT(*) as count"), DB::raw("(
-            CASE WHEN gpa>=2 and gpa < 2.8 THEN 'Average' 
-                WHEN gpa>=2.8 and gpa < 3.2 THEN 'Good'
-                WHEN gpa>=3.2 and gpa < 3.6 THEN 'Very good'
-                WHEN gpa>=3.6 and gpa < 4.0 THEN 'Excellent'
+            CASE WHEN gpa>=2 and gpa < 2.8 THEN 'Trung bình' 
+                WHEN gpa>=2.8 and gpa < 3.2 THEN 'Khá'
+                WHEN gpa>=3.2 and gpa < 3.6 THEN 'Giỏi'
+                WHEN gpa>=3.6 and gpa < 4.0 THEN 'Xuất sắc'
                 ELSE 'Failed' END) as rank"))
             ->groupBy('rank')
             ->orderBy('count')
             ->get();
 
         $data['barChart'] = Student::select(DB::raw("COUNT(*) as count"), DB::raw("(
-            CASE WHEN status='Active' THEN 'Active' 
-                WHEN status='Leave' THEN 'Leave'
-                WHEN status='Suspended' THEN 'Suspended'
-                WHEN status='Drop out' THEN 'Drop out'
+            CASE WHEN status='Đang học' THEN 'Đang học' 
+                WHEN status='Bảo lưu' THEN 'Bảo lưu'
+                WHEN status='Đình chỉ' THEN 'Đình chỉ'
+                WHEN status='Nghỉ học' THEN 'Nghỉ học'
                 ELSE 'Failed' END) as status"))
             ->groupBy('status')
             ->orderBy('count')

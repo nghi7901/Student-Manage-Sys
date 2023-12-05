@@ -26,8 +26,8 @@
                         <label>Giới tính</label>
                         <select class="form-control" name="gender">
                             <option value="">---</option>
-                            <option value="Male" {{ $student->gender == 'Male' ? 'selected' : '' }}>Nam</option>
-                            <option value="Female" {{ $student->gender == 'Female' ? 'selected' : '' }}>Nữ</option>
+                            <option value="Nam" {{ $student->gender == 'Nam' ? 'selected' : '' }}>Nam</option>
+                            <option value="Nữ" {{ $student->gender == 'Nữ' ? 'selected' : '' }}>Nữ</option>
                           </select>
                     </div>
                     <div class="mb-3">
@@ -49,8 +49,8 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-primary">Lưu</button>
             </div>
         </form>
       </div>
