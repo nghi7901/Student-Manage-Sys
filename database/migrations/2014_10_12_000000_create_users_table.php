@@ -37,6 +37,7 @@ return new class extends Migration
                 'name' => 'User',
                 'email' => 'user@gmail.com',
                 'password' => '$2y$12$JxhNkxp0Vu0S2n6nFUPnNehW5JaEaxm2hqTLxVYoRXu6w48scWxbG',
+                'is_admin' => 0,
             )
         );
     }

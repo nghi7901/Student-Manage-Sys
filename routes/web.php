@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\StudentController;
@@ -27,6 +28,10 @@ Route::middleware(['auth'])->group(function() {
     Route::controller(MainController::class)->group(function () {
         Route::get("/home", 'index')->name('home');
         Route::get("/logout", 'logout')->name('logout');
+    });
+
+    Route::controller(ChatController::class)->group(function () {
+        Route::get("/chat", 'chat')->name('chat');
     });
 
     Route::prefix('students')->controller(StudentController::class)->group(function () {
